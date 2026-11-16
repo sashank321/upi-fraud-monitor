@@ -27,7 +27,7 @@
       "web/app.js",
       "web/index.html"
     ],
-    "sha256": "605964621b5a4dd5e28a7057bb63b5f1d08403e7463d8a92966ca241048848f4",
+    "sha256": "3bd18cd25b44642eb209f93371599397ebb3a46630ec52bab59a380a3a2ea3db",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
     }
