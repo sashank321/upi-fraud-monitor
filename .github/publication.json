@@ -1,0 +1,45 @@
+[
+  {
+    "due": "2026-11-17T13:17:00+00:00",
+    "asset": "01-models.zip",
+    "message": "Add fraud model training and evaluated artifacts",
+    "files": [
+      "risk_model.py",
+      "train.py",
+      "requirements-train.txt",
+      "models/fraud-models.json"
+    ],
+    "sha256": "535f6a3625bd2b8784d31fa55e2bc4cdb419d9f3dd7c12e46df976f26f5db8d7"
+  },
+  {
+    "due": "2026-11-18T13:17:00+00:00",
+    "asset": "02-application.zip",
+    "message": "Add payment profiles and the bank investigation interface",
+    "files": [
+      "payments.py",
+      "app.py",
+      "investigation.py",
+      "local_agent.py",
+      "requirements-agent.txt",
+      "run-demo.ps1",
+      "setup-agent.ps1",
+      "web/app.css",
+      "web/app.js",
+      "web/index.html"
+    ],
+    "sha256": "605964621b5a4dd5e28a7057bb63b5f1d08403e7463d8a92966ca241048848f4",
+    "base_sha256": {
+      "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
+    }
+  },
+  {
+    "due": "2026-11-19T13:17:00+00:00",
+    "asset": "03-documentation.zip",
+    "message": "Document the demo and add payment regression tests",
+    "files": [
+      "README.md",
+      "tests/test_demo.py"
+    ],
+    "sha256": "f67515e3905a41f4e539904815432d3e4d9b698d4e1498dac6bd3f1f00a9715b"
+  }
+]
