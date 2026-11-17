@@ -14,20 +14,29 @@
   {
     "due": "2026-11-18T13:17:00+00:00",
     "asset": "02-application.zip",
-    "message": "Add payment profiles and the bank investigation interface",
+    "message": "Add the payment app and hosted OpenBot investigator",
     "files": [
       "payments.py",
       "app.py",
       "investigation.py",
-      "local_agent.py",
-      "requirements-agent.txt",
       "run-demo.ps1",
-      "setup-agent.ps1",
       "web/app.css",
       "web/app.js",
-      "web/index.html"
+      "web/index.html",
+      ".dockerignore",
+      "Dockerfile",
+      "compose.openbot.yml",
+      "hosted_agent.py",
+      "openbot_bridge.py",
+      "openbot/env.example",
+      "openbot/setup.ps1",
+      "openbot/tenant/agents.yaml",
+      "openbot/tenant/brand.yaml",
+      "openbot/tenant/channels.yaml",
+      "openbot/tenant/knowledge.yaml",
+      "openbot/tenant/model.yaml"
     ],
-    "sha256": "c9636604afdbb0026a2d9c109da5d4e68b1d4177be8dc1b1bd344ba11b243aa7",
+    "sha256": "84b8749f2b0f4c70ab2696971a57428dbdd3d60db9d8ba1c449da630159192eb",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
     }
@@ -38,8 +47,9 @@
     "message": "Document the demo and add payment regression tests",
     "files": [
       "README.md",
-      "tests/test_demo.py"
+      "tests/test_demo.py",
+      "tests/test_hosted_agent.py"
     ],
-    "sha256": "18edf8bb303af798d21356b0b5b823f432a28fd246ddaf476e42eb641aa52373"
+    "sha256": "11be2d590a5d2011868ab56472bb86311ee8697fc6b809701007e538d3676b6c"
   }
 ]
