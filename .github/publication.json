@@ -37,9 +37,10 @@
       "openbot/tenant/model.yaml",
       "demo_auth.py",
       "openbot/bank-gateway.conf.template",
-      "specialists.py"
+      "specialists.py",
+      "web/communication.js"
     ],
-    "sha256": "c3165c2936c367ae6f12b1e1af8cc95eb3f5bd2a948bb86f5eae2a33a1428b80",
+    "sha256": "d9cf27e6d0a59945ea842e922059ecd08da13c6af93781eceb8044b630b8fe2a",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
     }
@@ -54,6 +55,6 @@
       "tests/test_hosted_agent.py",
       "tests/test_workspace.py"
     ],
-    "sha256": "23f80b63f56dea1907590accde38ab8b36581b1ec4fe473f1624888a5f644113"
+    "sha256": "2e4e522dd075c4934f259911b8ce68cb48eb4d40472e4ec3383ed8de9e49ac0a"
   }
 ]
