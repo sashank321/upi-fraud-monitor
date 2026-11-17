@@ -9,7 +9,7 @@
       "requirements-train.txt",
       "models/fraud-models.json"
     ],
-    "sha256": "535f6a3625bd2b8784d31fa55e2bc4cdb419d9f3dd7c12e46df976f26f5db8d7"
+    "sha256": "321b3c1ca311909223178a9c4bd294310f5c26eda854d7bd5533c4616421c0ed"
   },
   {
     "due": "2026-11-18T13:17:00+00:00",
@@ -27,7 +27,7 @@
       "web/app.js",
       "web/index.html"
     ],
-    "sha256": "3bd18cd25b44642eb209f93371599397ebb3a46630ec52bab59a380a3a2ea3db",
+    "sha256": "c9636604afdbb0026a2d9c109da5d4e68b1d4177be8dc1b1bd344ba11b243aa7",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
     }
@@ -40,6 +40,6 @@
       "README.md",
       "tests/test_demo.py"
     ],
-    "sha256": "f67515e3905a41f4e539904815432d3e4d9b698d4e1498dac6bd3f1f00a9715b"
+    "sha256": "18edf8bb303af798d21356b0b5b823f432a28fd246ddaf476e42eb641aa52373"
   }
 ]
