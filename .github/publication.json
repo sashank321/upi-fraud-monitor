@@ -38,7 +38,7 @@
       "demo_auth.py",
       "openbot/bank-gateway.conf.template"
     ],
-    "sha256": "0e6f540f98c8af3335c540066b935c329460b5427a8a1274e835506ae3512113",
+    "sha256": "5650f82e1102b897d24224144423b983f2e6089d0f998702298b70672e37178e",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
     }
@@ -53,6 +53,6 @@
       "tests/test_hosted_agent.py",
       "tests/test_workspace.py"
     ],
-    "sha256": "a2080df06b7caba6fa99f6da0f2850cdd61465855d11b2116c5ae523b65b3051"
+    "sha256": "dc4c39e4f9aff8e0259912d2b77cb8d4bc5420dd0752455b0b9db2b37db5e0e0"
   }
 ]
