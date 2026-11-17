@@ -39,7 +39,7 @@
       "web/react-bits/SpotlightCard.css",
       "web/react-bits/SpotlightCard.jsx"
     ],
-    "sha256": "55d81b767b2859414c9b3821cfe1b5c06de7c5232c2abf4110e15bc168526b7b",
+    "sha256": "c38bd33b760c5f257bf8c22e24766ff0d8eded35c9cfd52aebc8930b0646210b",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64",
       ".gitignore": "e44517af674f9469bc061d60a4ff91fe014fb8309238b1e2f02372eee65afe6c"
@@ -56,6 +56,6 @@
       "tests/test_workspace.py",
       "tests/test_autonomy.py"
     ],
-    "sha256": "bf3b150eef3b66f113fdbb202698c68ee59ca236fcf7eafa4a8aefd68a89c1e7"
+    "sha256": "ad10c3d98482b9fabbefe843e45fc0588d4129524bf57f9c190b36bbbc374b30"
   }
 ]
