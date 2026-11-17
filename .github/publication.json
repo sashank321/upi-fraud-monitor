@@ -1,27 +1,14 @@
 [
   {
-    "due": "2026-11-17T13:17:00+00:00",
-    "asset": "01-models.zip",
-    "message": "Add fraud model training and evaluated artifacts",
-    "files": [
-      "risk_model.py",
-      "train.py",
-      "requirements-train.txt",
-      "models/fraud-models.json"
-    ],
-    "sha256": "321b3c1ca311909223178a9c4bd294310f5c26eda854d7bd5533c4616421c0ed"
-  },
-  {
     "due": "2026-11-18T13:17:00+00:00",
     "asset": "02-application.zip",
-    "message": "Add the payment app and hosted OpenBot investigator",
+    "message": "Add the autonomous LLM payment workspace and React Bits UI",
     "files": [
       "payments.py",
       "app.py",
       "investigation.py",
       "run-demo.ps1",
       "web/app.css",
-      "web/app.js",
       "web/index.html",
       ".dockerignore",
       "Dockerfile",
@@ -38,24 +25,37 @@
       "demo_auth.py",
       "openbot/bank-gateway.conf.template",
       "specialists.py",
-      "web/communication.js",
-      "UI-LICENSES.md"
+      "UI-LICENSES.md",
+      ".gitignore",
+      "autonomous_store.py",
+      "orchestration.py",
+      "package.json",
+      "package-lock.json",
+      "web/ui.jsx",
+      "web/workspace.css",
+      "web/react-bits/LICENSE.md",
+      "web/react-bits/GradientText.css",
+      "web/react-bits/GradientText.jsx",
+      "web/react-bits/SpotlightCard.css",
+      "web/react-bits/SpotlightCard.jsx"
     ],
-    "sha256": "b290a4073dafe60e50e03a0a1b84c2012e1d17c857d0e8913744eaf01d557bbc",
+    "sha256": "55d81b767b2859414c9b3821cfe1b5c06de7c5232c2abf4110e15bc168526b7b",
     "base_sha256": {
-      "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64"
+      "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64",
+      ".gitignore": "e44517af674f9469bc061d60a4ff91fe014fb8309238b1e2f02372eee65afe6c"
     }
   },
   {
     "due": "2026-11-19T13:17:00+00:00",
     "asset": "03-documentation.zip",
-    "message": "Document the demo and add payment regression tests",
+    "message": "Document and test the autonomous payment workflow",
     "files": [
       "README.md",
       "tests/test_demo.py",
       "tests/test_hosted_agent.py",
-      "tests/test_workspace.py"
+      "tests/test_workspace.py",
+      "tests/test_autonomy.py"
     ],
-    "sha256": "5ba46707b0b3072dbdd9a8d0583e74a34cac9cb5f961bb1d56047186907b2366"
+    "sha256": "bf3b150eef3b66f113fdbb202698c68ee59ca236fcf7eafa4a8aefd68a89c1e7"
   }
 ]
