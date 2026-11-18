@@ -1,8 +1,8 @@
 [
   {
     "due": "2026-11-18T13:17:00+00:00",
-    "asset": "02-application.zip",
-    "message": "Add the autonomous LLM payment workspace and React Bits UI",
+    "asset": "04-laya-application.zip",
+    "message": "Add local Laya decisions and the autonomous payment workspace",
     "files": [
       "payments.py",
       "app.py",
@@ -37,9 +37,12 @@
       "web/react-bits/GradientText.css",
       "web/react-bits/GradientText.jsx",
       "web/react-bits/SpotlightCard.css",
-      "web/react-bits/SpotlightCard.jsx"
+      "web/react-bits/SpotlightCard.jsx",
+      "laya_decisions.py",
+      "laya_service/Dockerfile",
+      "laya_service/server.py"
     ],
-    "sha256": "88f5647747f0717d0ffed553e93b81e71b081ebdb0a8a7c24edf583c7ba010c3",
+    "sha256": "ddb829a59e38a013518bd6b89be5f8facf3fbf5c9072314a499406882768f56d",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64",
       ".gitignore": "e44517af674f9469bc061d60a4ff91fe014fb8309238b1e2f02372eee65afe6c"
@@ -47,8 +50,8 @@
   },
   {
     "due": "2026-11-19T13:17:00+00:00",
-    "asset": "03-documentation.zip",
-    "message": "Document and test the autonomous payment workflow",
+    "asset": "05-laya-documentation.zip",
+    "message": "Document and test the Laya payment workflow",
     "files": [
       "README.md",
       "tests/test_demo.py",
@@ -56,6 +59,6 @@
       "tests/test_workspace.py",
       "tests/test_autonomy.py"
     ],
-    "sha256": "2ea6fd6d2bef5802d923280af5f39ba6c97a9c5626a4e6556a71b6102b1ec403"
+    "sha256": "74e8757f9aa63d1ae221cdf02f1b5f81aae07886cc8e9749d4bef26a3c43946e"
   }
 ]
