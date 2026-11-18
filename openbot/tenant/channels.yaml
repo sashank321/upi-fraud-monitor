@@ -1,0 +1,6 @@
+channels:
+  - id: fraud-desk
+    name: Fraud desk
+    description: Review simulated payment cases.
+    permitted_agents: [fraud-investigator]
+    allowed_groups: [all]

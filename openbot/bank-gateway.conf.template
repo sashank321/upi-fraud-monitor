@@ -1,0 +1,36 @@
+map $http_upgrade $bank_connection {
+    default upgrade;
+    '' close;
+}
+
+log_format bank_access '$remote_addr "$request_method $uri $server_protocol" $status $body_bytes_sent';
+
+server {
+    listen 8080;
+    access_log /var/log/nginx/access.log bank_access;
+
+    location = /_bank_access {
+        internal;
+        proxy_pass http://upi-monitor:${UPI_MONITOR_PORT}/api/openbot-access;
+        proxy_method GET;
+        proxy_pass_request_body off;
+        proxy_set_header Content-Length "";
+        proxy_set_header Host 127.0.0.1:${UPI_MONITOR_PORT};
+        proxy_set_header Origin "";
+        proxy_set_header Cookie $http_cookie;
+    }
+
+    location / {
+        auth_request /_bank_access;
+        error_page 401 403 =303 ${UPI_PUBLIC_URL}/bank;
+        proxy_pass http://openbot:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $bank_connection;
+        proxy_buffering off;
+        proxy_read_timeout 300s;
+    }
+}

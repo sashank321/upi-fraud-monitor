@@ -1,0 +1,91 @@
+name: upi-fraud-openbot
+services:
+  laya:
+    image: upi-laya:0.4.35
+    build:
+      context: .
+      dockerfile: laya_service/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - laya-models:/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8090/health', timeout=2).close()"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+      start_period: 30m
+  upi-monitor:
+    build: .
+    depends_on:
+      laya:
+        condition: service_healthy
+    command: ["--bind", "0.0.0.0", "--port", "${UPI_MONITOR_PORT:-8000}", "--ag-ui-port", "8765", "--ag-ui-internal", "--signins", "/app/signins.json"]
+    ports:
+      - "${UPI_BIND_IP:-127.0.0.1}:${UPI_MONITOR_PORT:-8000}:${UPI_MONITOR_PORT:-8000}"
+    environment:
+      UPI_LAYA_URL: http://laya:8090
+      UPI_PUBLIC_URL: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_MONITOR_PORT:-8000}"
+      UPI_OPENBOT_PUBLIC_URL: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_OPENBOT_PORT:-3001}"
+      UPI_LLM_API_KEY: "${UPI_LLM_API_KEY:-}"
+      UPI_LLM_MODEL: "${UPI_LLM_MODEL:-}"
+      UPI_LLM_BASE_URL: "${UPI_LLM_BASE_URL:-https://integrate.api.nvidia.com/v1}"
+      UPI_AGENT_SIGNAL_ANALYST_KEY: "${UPI_AGENT_SIGNAL_ANALYST_KEY:-}"
+      UPI_AGENT_CASE_BRIEF_KEY: "${UPI_AGENT_CASE_BRIEF_KEY:-}"
+      UPI_AGENT_LEDGER_REVIEWER_KEY: "${UPI_AGENT_LEDGER_REVIEWER_KEY:-}"
+      UPI_AGENT_VERIFICATION_COACH_KEY: "${UPI_AGENT_VERIFICATION_COACH_KEY:-}"
+      UPI_AGENT_POLICY_EXPLAINER_KEY: "${UPI_AGENT_POLICY_EXPLAINER_KEY:-}"
+    volumes:
+      - payments:/app/data
+      - ./data/demo.signins.json:/app/signins.json:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:${UPI_MONITOR_PORT:-8000}/health', timeout=2).close()"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+  openbot:
+    image: ghcr.io/copilotkit/openbot:v1.0.3
+    profiles: ["openbot"]
+    depends_on:
+      upi-monitor:
+        condition: service_healthy
+    environment:
+      EMBEDDED_POSTGRES: "on"
+      OPENBOT_SINGLE_USER: "true"
+      TENANT_PACKAGE_DIR: /etc/upi-openbot
+      KEY_ENCRYPTION_KEY: "${KEY_ENCRYPTION_KEY:-}"
+      INTELLIGENCE_API_URL: "${INTELLIGENCE_API_URL:-https://api.intelligence.copilotkit.ai}"
+      INTELLIGENCE_GATEWAY_WS_URL: "${INTELLIGENCE_GATEWAY_WS_URL:-wss://realtime.intelligence.copilotkit.ai}"
+      INTELLIGENCE_GATEWAY_PROXY: "on"
+      CPK_INTELLIGENCE_API_KEY: "${CPK_INTELLIGENCE_API_KEY:-}"
+      OPENAI_API_KEY: "${UPI_LLM_API_KEY:-}"
+      OPENAI_BASE_URL: "${UPI_LLM_BASE_URL:-https://integrate.api.nvidia.com/v1}"
+      OPENBOT_APP_URL: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_OPENBOT_PORT:-3001}"
+      OPENBOT_PUBLIC_URL: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_OPENBOT_PORT:-3001}"
+      TRUSTED_ORIGINS: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_OPENBOT_PORT:-3001}"
+      BOT_MODEL: "${UPI_LLM_MODEL:-}"
+      AGENT_ENDPOINT_ALLOWED_HOSTS: upi-monitor:8765
+      UPI_OPENBOT_ENDPOINT: http://upi-monitor:8765/ag-ui
+    volumes:
+      - openbot-postgres:/var/lib/postgresql
+      - ./openbot/tenant:/etc/upi-openbot:ro
+  bank-gateway:
+    image: nginx:1.28-alpine
+    profiles: ["openbot"]
+    depends_on:
+      upi-monitor:
+        condition: service_healthy
+        restart: true
+      openbot:
+        condition: service_healthy
+        restart: true
+    ports:
+      - "${UPI_BIND_IP:-127.0.0.1}:${UPI_OPENBOT_PORT:-3001}:8080"
+    environment:
+      UPI_MONITOR_PORT: "${UPI_MONITOR_PORT:-8000}"
+      UPI_PUBLIC_URL: "http://${UPI_BIND_IP:-127.0.0.1}:${UPI_MONITOR_PORT:-8000}"
+    volumes:
+      - ./openbot/bank-gateway.conf.template:/etc/nginx/templates/default.conf.template:ro
+volumes:
+  laya-models:
+  payments:
+  openbot-postgres:

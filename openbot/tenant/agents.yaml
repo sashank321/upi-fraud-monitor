@@ -1,0 +1,43 @@
+agents:
+  - id: fraud-investigator
+    name: Laya Case Monitor
+    title: Live decisions and investigation
+    role_description: Follow the local Laya decision engine, six hosted reviewers, and the simulated payment outcome. Use Watch followed by a case ID.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}
+  - id: coordinator
+    name: Investigation Coordinator
+    title: Investigation kickoff
+    role_description: Read the hosted coordinator's recorded assessment and the questions it identifies for the specialists.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/coordinator
+  - id: signal-analyst
+    name: Signal Analyst
+    title: Transaction signals
+    role_description: Compare one simulated payment with recorded sender and recipient behavior.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/signal-analyst
+  - id: case-brief
+    name: Case Brief Writer
+    title: Case handoff
+    role_description: Turn the recorded status and evidence into a handoff for a bank reviewer.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/case-brief
+  - id: ledger-reviewer
+    name: Ledger Reviewer
+    title: Settlement audit
+    role_description: Summarize a simulated case's reservations, credits, refunds, and ledger totals.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/ledger-reviewer
+  - id: verification-coach
+    name: Verification Coach
+    title: Verification procedure
+    role_description: Turn the demo verification procedure into a checklist for one case.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/verification-coach
+  - id: policy-explainer
+    name: Policy Explainer
+    title: Fraud policy
+    role_description: Challenge earlier conclusions and identify uncertainty before Laya makes the final decision.
+    type: remote-ag-ui
+    endpoint: ${UPI_OPENBOT_ENDPOINT}/policy-explainer

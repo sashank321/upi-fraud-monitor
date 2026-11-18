@@ -1,0 +1,15 @@
+{
+  "name": "upi-fraud-monitor",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild web/ui.jsx --bundle --minify --jsx=automatic --legal-comments=eof --outfile=web/ui.js"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
