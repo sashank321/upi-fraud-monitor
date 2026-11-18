@@ -1,8 +1,8 @@
 [
   {
     "due": "2026-11-18T13:17:00+00:00",
-    "asset": "04-laya-application.zip",
-    "message": "Add local Laya decisions and the autonomous payment workspace",
+    "asset": "06-laya-application.zip",
+    "message": "Add local Laya decisions and the payment workspace with balance reset",
     "files": [
       "payments.py",
       "app.py",
@@ -42,7 +42,7 @@
       "laya_service/Dockerfile",
       "laya_service/server.py"
     ],
-    "sha256": "ddb829a59e38a013518bd6b89be5f8facf3fbf5c9072314a499406882768f56d",
+    "sha256": "fbfe17f01da75a88ad8332389b0fe44a42f0282bca9ac3efbdbb275450e378ab",
     "base_sha256": {
       "payments.py": "46680488a12bb08be81cfe20c28c758c3b084d8f9fc676f80c1d88ad6a7f0d64",
       ".gitignore": "e44517af674f9469bc061d60a4ff91fe014fb8309238b1e2f02372eee65afe6c"
@@ -50,7 +50,7 @@
   },
   {
     "due": "2026-11-19T13:17:00+00:00",
-    "asset": "05-laya-documentation.zip",
+    "asset": "07-laya-documentation.zip",
     "message": "Document and test the Laya payment workflow",
     "files": [
       "README.md",
@@ -59,6 +59,6 @@
       "tests/test_workspace.py",
       "tests/test_autonomy.py"
     ],
-    "sha256": "74e8757f9aa63d1ae221cdf02f1b5f81aae07886cc8e9749d4bef26a3c43946e"
+    "sha256": "7de2b40797f41c3366413011f4c993191d7859bf0bc5fd8313ad9d04142e919c"
   }
 ]
